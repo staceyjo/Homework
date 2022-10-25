@@ -28,42 +28,11 @@
 // To change the content of an HTML element, use this syntax: 
   // document.getElementById(id).innerHTML = new HTM
 
-// ===================== Accessing DOM Elements (Querying)=====================
+
+// ===================== Accessing DOM Elements (Querying)============
 
 // INSTRUCTIONS: Create individual functions for each solution. 
 // Don't forget to call the function once you're finished.
-
-// =============================== Part 1- ============================
-
-// 1. Write a JavaScript statement that selects the #main-title ID element. 
-document.getElementById("main-title");
-
-// 2. Change the text of the title to something shorter.
-document.getElementById("main-title").innerHTML="Welcome! I'm  DOM Toretto.";
-
-// 3. Create a function
-
-function shortTitle () {
-  let newMainTitleEl = document.getElementById("main-title");   // 1.0
-  newMainTitleEl.innerHTML = "Welcome! I'm DOM T.";             // 1.1
-}
-shortTitle();
-
-// =============================== Part 2- ============================
-// 1.Select the body
-document.querySelector('body')
-
-// 2. Change the background-color to a new color of your choice.
-
-document.body.style.backgroundColor = "green";
-
-// 2. Create a function
-
-function changeBodyColor() {
-  let bodyColorEl = document.querySelector('body');                    // 2.0
-  bodyColorEl.style.backgroundColor = "lightblue";                     // 2.1
-}
-changeBodyColor();
 
 let quotes = [
   `I live my life a quarter mile at a time`,
@@ -73,3 +42,96 @@ let quotes = [
   `I don't have friends. I have family.`,
   `It don't matter if you win by an inch or a mile. Winning's winning.`
 ];
+
+// =============================== Part 1 ============================
+
+// 1. Write a JavaScript statement that selects the #main-title ID element. 
+document.getElementById("main-title");
+
+// 2. Change the text of the title to something shorter.
+document.getElementById("main-title").innerHTML="Welcome! I'm  DOM Toretto.";
+
+// 3. Create a function & invoke it
+
+function shortTitle () {                                        // 1.3
+  let newMainTitleEl = document.getElementById("main-title");   // 1.1
+  newMainTitleEl.innerHTML = "Welcome! I'm DOM T.";             // 1.2
+}
+shortTitle();                                                   // 1.3
+
+// =============================== Part 2 ============================
+// 1.Select the body
+document.querySelector('body')
+
+// 2. Change the background-color to a new color of your choice.
+document.body.style.backgroundColor = "green";
+
+// 3. Create a function & invoke it
+
+function changeBodyColor() {                                           // 2.3
+  let bodyColorEl = document.querySelector('body');                    // 2.1
+  bodyColorEl.style.backgroundColor = "lightblue";                     // 2.2
+}
+changeBodyColor();                                                     // 2.3
+
+// =============================== Part 3 ============================
+// 1. Select DOM's Favorite Things list
+// 2. Remove the last list item.
+// 3. Create a function & invoke it
+
+// =============================== Part 4 ============================
+// 1. Select all .special-title class elements
+// 2. Change their font-size to 2rem. 
+// Remember you might have to iterate through the list of elements
+
+// =============================== Part 5 ============================
+// 1. Access the Past Races list
+// 2. Remove Chicago.
+
+// ===================== Creating DOM Elements =======================
+
+// =============================== Part 6 ============================
+// 1. Add to DOM's Past Races list
+// 2. Create a new <li> element
+// 3. Change the new <li> text to the name of a city
+// 4. And then append it to the Past Races list
+
+// =============================== Part 7 ============================
+// 1. Create a new .blog-post corresponding to the new city 
+// added in Part 6. 
+// 2. You will have to create a new <div> with: 
+// class of .blog-post, 
+// a new <h2> with text, 
+// and a new <p> with some text. 
+
+//Think about what order you want to create the elements, 
+// and what order you want to append them in.
+
+
+// =============================== Event Handlers ====================
+
+// =============================== Part 8 ============================
+// When you reload the page, the script.js file loads a random DOM quote. 
+// Let's play with the included function: 
+const randomQuote = function() {
+  document.querySelector('#quote-of-the-day').innerText = `"${quotes[Math.floor(Math.random() * quotes.length)]}"`;
+};
+
+// Query select the #quote-title ID element 
+// and add a click event handler. 
+// That event handler should use the function randomQuote 
+// whenever #quote-title is clicked.
+ 
+
+// =============================== Part 9 ============================
+// Select all .blog-post class elements. 
+// Iterate through the list of .blog-post class elements 
+// and apply two event handlers to each node. 
+// The first event handler should be listening for 
+// mouseout events 
+// while the second handler should be listening 
+// for mouseenter events.
+
+// The mouseouth andler should toggle the class .purple
+// The mouseenter handler should toggle the class .red
+// Test it out!
