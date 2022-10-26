@@ -588,7 +588,10 @@ topMenuEl.addEventListener("click", (evt) => {                    // 5.2a
       subMenuEl.append(newText);
     });
   }
-   // move 6.4 here ?
+  if (evt.target.text === 'about'){                               // 6.4
+    mainEl.innerHTML = `<h1>${evt.target.text}</h1`;
+  }
+
 })
 
 
@@ -631,7 +634,7 @@ subMenuEl.addEventListener("click", (evt) => {                    // 6.0a
   if(evt.target.tagName !== 'A') {                                // 6.0c
     return;
   } //else {
-    //console.log(evt.target.tagName);                              // 6.0d
+    //console.log(evt.target.tagName);                            // 6.0d
   //}
 
   showingSubMenu = false;                                         // 6.1a
@@ -642,11 +645,8 @@ subMenuEl.addEventListener("click", (evt) => {                    // 6.0a
     // console.log(arg);
   });
 
-  mainEl.innerHTML = `<h1>${evt.target.text}</h1>`;              // 6.3
+  mainEl.innerHTML = `<h1>${evt.target.text}</h1>`;               // 6.3
 
-  if (evt.target.text === 'about'){                               // 6.4
-    mainEl.innerHTML = `<h1>${evt.target.text}</h1`;
-  }
 });
 
 
