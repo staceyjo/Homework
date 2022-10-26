@@ -28,6 +28,44 @@
 // To change the content of an HTML element, use this syntax: 
   // document.getElementById(id).innerHTML = new HTM
 
+// NOTES: HTML DOM Element .remove()
+// The remove() method removes an element (or node) from the document
+// Remove an element from the document: 
+  // SYNTAX: 
+  // function myFunction() {
+  //   const element = document.getElementById("demo");
+  //   element.remove()
+
+// In this case, we're removing a list element/<li> item
+// The parent element of the li we are trying to remove is 
+// an unordered list with an element id of "past-races" 
+
+// NOTES: HTML DOM Element removeChild()
+  // SYNTAX: 
+  // const list = document.getElementById("myList");
+  // list.removeChild(list.firstElementChild);
+
+// NOTES: HTML DOM Document getElementsByClassName()
+// - Returns a collection of elements with a specified class name(s).
+// - Returns an HTMLCollection.
+// SYNTAX: 
+// const collection = document.getElementsByClassName("example")
+
+// HTMLCollection is an array-like collection (list) of HTML elements
+// The elements in a collection can be accessed by index (starts at 0).
+
+// The length Property returns the number of elements in the collection.
+// SYNTAX: 
+// let numb = document.getElementsByClassName("example").length
+
+// SYNTAX: Changing background color for all elements with "example" class 
+// const collection = document.getElementsByClassName("example");
+// for (let i = 0; i < collection.length; i++) {
+//   collection[i].style.backgroundColor = "red";
+// } 
+
+// Rersource for DOM style object: 
+// https://www.w3schools.com/jsref/dom_obj_style.asp
 
 // ===================== Accessing DOM Elements (Querying)============
 
@@ -59,6 +97,7 @@ function shortTitle () {                                        // 1.3
 }
 shortTitle();                                                   // 1.3
 
+
 // =============================== Part 2 ============================
 // 1.Select the body
 document.querySelector('body')
@@ -69,24 +108,68 @@ document.body.style.backgroundColor = "green";
 // 3. Create a function & invoke it
 
 function changeBodyColor() {                                           // 2.3
-  let bodyColorEl = document.querySelector('body');                    // 2.1
+  const bodyColorEl = document.querySelector('body');                  // 2.1
   bodyColorEl.style.backgroundColor = "lightblue";                     // 2.2
 }
 changeBodyColor();                                                     // 2.3
 
+
 // =============================== Part 3 ============================
 // 1. Select DOM's Favorite Things list
-// 2. Remove the last list item.
+  // ul id="favorite-things"
+  document.getElementById("favorite-things")
+
+// 2. Remove the last list item
+  // Staring people down
+  const list = document.getElementById("favorite-things")
+  list.removeChild(list.lastElementChild)
+
 // 3. Create a function & invoke it
+
+function removeFavThing () {                                          // 3.3
+  const list = document.getElementById("favorite-things")             // 3.1
+  list.removeChild(list.lastElementChild)                             // 3.2
+}
+removeFavThing()                                                      // 3.3
+
 
 // =============================== Part 4 ============================
 // 1. Select all .special-title class elements
-// 2. Change their font-size to 2rem. 
+// All special-title class elements can be selected by class name 
+
+const collection = document.getElementsByClassName("special-title")
+
 // Remember you might have to iterate through the list of elements
+
+let numbOfSpec = document.getElementsByClassName("special-title").length
+// There are 2 (Quote of the Day & DOM Adventures)
+console.log(numbOfSpec)
+
+
+// 2. Change their font-size to 2rem.
+// const collection = document.getElementsByClassName("special-title");
+for (let i = 0; i < collection.length; i++) {
+  collection[i].style.fontSize = "2rem";
+}
+
+
+// 3. Create a function
+
+function changeFontSz() {
+  const specTitleEl = document.getElementsByClassName("special-title")
+  for (let i = 0; i < specTitleEl.length; i++) {
+    specTitleEl[i].style.fontSize = "2rem";
+
+  }
+}
+changeFontSz()
 
 // =============================== Part 5 ============================
 // 1. Access the Past Races list
+
 // 2. Remove Chicago.
+
+// 3. Create a function
 
 // ===================== Creating DOM Elements =======================
 
