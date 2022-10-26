@@ -64,8 +64,17 @@
 //   collection[i].style.backgroundColor = "red";
 // } 
 
-// Rersource for DOM style object: 
+// Resource for DOM style object: 
 // https://www.w3schools.com/jsref/dom_obj_style.asp
+
+// Add/ Remove List item: not helpful
+// https://code-boxx.com/add-remove-list-items-javascript/
+
+// HTML DOM Element childNodes
+// SYNTAX: 
+// const nodeList = document.body.childNodes;
+
+// https://koenwoortman.com/javascript-remove-li-elements-from-ul/
 
 // ===================== Accessing DOM Elements (Querying)============
 
@@ -166,10 +175,70 @@ changeFontSz()
 
 // =============================== Part 5 ============================
 // 1. Access the Past Races list
+// ul id="past-races"
+// document.getElementById("past-races")
+
+// const pastList = document.getElementById("past-races");
+// console.log(pastList) // This prints the full unordered list
+
+// // To check the node elements
+// const removedItem = pastList.hasChildNodes()
+// console.log(removedItem) // This prints true 
+
+// // To access all the children in the past races list: 
+// const nodeList = pastList.childElementCount
+// console.log(nodeList) // This prints 6 ... getting somewhere
+
+// // To access just the li's ...
+// const listElements = document.querySelectorAll("#past-races li");
+// console.log(listElements) // This prints the 6 li's of the Node List
+
+// There is a way to just remove the li elements: 
+// With a for loop we can remove just remove the li elements. 
+// We use a different selector here to get all the li's 
+// of the list instead of the list itself
+
+const pastList = document.getElementById("past-races");
+
+// for (let i = 0; i < listEl.length; i++) {
+//   let chiRace = listEl[i].innerHTML.includes("Chicago");
+//   if(chiRace === true) {
+//     listEl[i].remove();
+//   }
+// }
+// console.log(listEl) // chiRace is not defined....
 
 // 2. Remove Chicago.
+// How do we remove one specific li child 
+// that's not the first or last in an ul? 
+// Stack Overflow and Google aren't helping
+
+// Office Hours: This doesn't remove anything ?
+
+// for(let i = 0; i < listElements.length; i++) {
+//   let chicagoRace = listElements[i].innerHTML.includes("Chicago");
+//   if(chicagoRace === true) {
+//     listElements[i].remove();
+//   }
+// }
+
+for (text of document.querySelectorAll("#past-races > li")) {
+  if (text.textContent === "Chicago") {
+    document.querySelector("#past-races").removeChild(text);
+  }
+}
 
 // 3. Create a function
+
+// function removeChicago() {
+//   const removeChicago = document.getElementById("past-races")
+//   if(removeChicago.hasChildNodes()) {
+//   removeChicago.removeChild(removeChicago.children[3])
+// }
+// }
+// removeChicago()
+
+
 
 // ===================== Creating DOM Elements =======================
 
@@ -179,16 +248,73 @@ changeFontSz()
 // 3. Change the new <li> text to the name of a city
 // 4. And then append it to the Past Races list
 
+const li = document.createElement("li");
+li.textContent = "Charlotte";
+document.querySelector("#past-races").appendChild(li);
+
+// 5. Create a function:
+
+function addNewCityEl () {
+  const newCityEl = document.createElement("li")
+  newCityEl.classList.add("city")
+  newCityEl.textContent = "Atlanta"
+
+  const ulEl = document.getElementById("past-races")
+
+  ulEl.append(newCityEl)
+}
+
+addNewCityEl()
+
 // =============================== Part 7 ============================
 // 1. Create a new .blog-post corresponding to the new city 
 // added in Part 6. 
 // 2. You will have to create a new <div> with: 
-// class of .blog-post, 
-// a new <h2> with text, 
-// and a new <p> with some text. 
+  // class of .blog-post, 
+  // a new <h2> with text, 
+  // and a new <p> with some text. 
 
-//Think about what order you want to create the elements, 
+// Think about what order you want to create the elements, 
 // and what order you want to append them in.
+
+// const blogPost = document.createElement("div");
+// blogPost.classList.add("blog-post"); // ! <--- Don't add a dot when adding class name!!!
+// const headingTwo = document.createElement("h2");
+// headingTwo.textContent = "Charlotte";
+// const pEl = document.createElement("p");
+// pEl.textContent =
+//   "I actually prefer acting to wrestling.";
+//   document.querySelector(".main").appendChild(blogPost);
+//   blogPost.appendChild(headingTwo);
+//   blogPost.appendChild(pEl);
+
+// 3. Create a function: 
+
+
+function newBlogPost() {
+
+  const mainElement = document.querySelector(".main")
+  
+  const newDiv = document.createElement("div")
+  
+  const newHElement = document.createElement("h1")
+  newHElement.textContent = "Atlanta"
+  // newHElement.backgroundColor = "#FFF"
+  // newHElement.fontSize = "2em"
+  
+  const newP = document.createElement("p")
+  newP.textContent = "I GOT STUCK IN ATLANTA TRAFFIC!"
+  newDiv.classList.add("blog-post", "purple")
+  
+  
+  mainElement.append(newDiv)
+  newDiv.append(newHElement)
+  newDiv.append(newP)
+  
+  }
+  
+  newBlogPost()
+  
 
 
 // =============================== Event Handlers ====================
@@ -196,14 +322,40 @@ changeFontSz()
 // =============================== Part 8 ============================
 // When you reload the page, the script.js file loads a random DOM quote. 
 // Let's play with the included function: 
-const randomQuote = function() {
-  document.querySelector('#quote-of-the-day').innerText = `"${quotes[Math.floor(Math.random() * quotes.length)]}"`;
-};
+// const randomQuote = function() {
+//   document.querySelector('#quote-of-the-day').innerText = `"${quotes[Math.floor(Math.random() * quotes.length)]}"`;
+// };
 
 // Query select the #quote-title ID element 
 // and add a click event handler. 
 // That event handler should use the function randomQuote 
 // whenever #quote-title is clicked.
+
+const randomQuote = function () {
+  document.querySelector("#quote-of-the-day").innerText = `"${
+    quotes[Math.floor(Math.random() * quotes.length)]
+  }"`;
+};
+
+document.querySelector("#quote-title").addEventListener("click", (event) => {
+  randomQuote();
+});
+
+// Create a functions
+
+function quoteChanger() {
+  const randomQuote = function() {
+  document.querySelector('#quote-of-the-day').innerText = `"${quotes[Math.floor(Math.random() * quotes.length)]}"`;
+  };
+  
+  // const quoteSelect = document.getElementById("quote-title")
+  
+  const quoteSelect = document.querySelector("#quote-title")
+  
+  quoteSelect.addEventListener("click", randomQuote)
+  }
+  
+  quoteChanger()
  
 
 // =============================== Part 9 ============================
@@ -215,6 +367,15 @@ const randomQuote = function() {
 // while the second handler should be listening 
 // for mouseenter events.
 
-// The mouseouth andler should toggle the class .purple
-// The mouseenter handler should toggle the class .red
+// The mouse out handler should toggle the class .purple
+// The mouse enter handler should toggle the class .red
 // Test it out!
+
+document.querySelectorAll(".blog-post").forEach((blogEntry) => {
+  blogEntry.addEventListener("mouseout", (event) => {
+    event.currentTarget.classList.toggle("purple");
+  });
+  blogEntry.addEventListener("mouseenter", (event) => {
+    event.currentTarget.classList.toggle("red");
+  });
+});
