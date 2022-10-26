@@ -530,8 +530,6 @@ topMenuEl.addEventListener("click", (evt) => {                    // 5.2a
 
   if (evt.target.tagName !== "A") {                               // 5.2c
     return;
-  } else {
-    // console.log(evt.target.classList);                         // 5.2d
   }
 
   if (evt.target.classList.contains('active')) {                  // 5.3
@@ -542,7 +540,7 @@ topMenuEl.addEventListener("click", (evt) => {                    // 5.2a
     return;                                                       // 5.3d
   }
 
-  topMenuLinks.forEach(function (arg) {                            // 5.4
+  topMenuLinks.forEach(function(arg) {                            // 5.4
     arg.classList.remove('active');
     // console.log(arg);
   });
@@ -584,12 +582,13 @@ topMenuEl.addEventListener("click", (evt) => {                    // 5.2a
     subMenuEl.innerHTML = "";
     console.log(subMenuEl);
     currentLink.subLinks.forEach((link) => {
-      let newText = document.createElement('a');
+      let newText = document.createElement('A');
       newText.setAttribute('href', link.href);
       newText.textContent = link.text;
       subMenuEl.append(newText);
-    })
+    });
   }
+   // move 6.4 here ?
 })
 
 
@@ -629,22 +628,25 @@ topMenuEl.addEventListener("click", (evt) => {                    // 5.2a
 
 subMenuEl.addEventListener("click", (evt) => {                    // 6.0a
   evt.preventDefault();                                           // 6.0b
-  if (evt.target.tagName !== 'A') {                               // 6.0c
+  if(evt.target.tagName !== 'A') {                                // 6.0c
     return;
-  } else {
-    console.log(evt.target.tagName);                              // 6.0d
-  }
+  } //else {
+    //console.log(evt.target.tagName);                              // 6.0d
+  //}
 
   showingSubMenu = false;                                         // 6.1a
   subMenuEl.style.top = '0';                                      // 6.1b
 
   topMenuLinks.forEach((arg) => {                                 // 6.2
-
     arg.classList.remove('active');
     // console.log(arg);
-  })
+  });
 
-  mainEl.innerHTML = `<h1>${currentLink.text}</h1>`;              // 6.3
+  mainEl.innerHTML = `<h1>${evt.target.text}</h1>`;              // 6.3
+
+  if (evt.target.text === 'about'){                               // 6.4
+    mainEl.innerHTML = `<h1>${evt.target.text}</h1`;
+  }
 });
 
 
