@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel = "stylesheet" href = "style.css">
+    <title>Save the Universe</title>
+</head>
+<body>
+    <h1>Save the Universe!</h1>
+    <h6>A console-based game of battling alien spaceships using Javascript</h6>
+    <h2>You are the captain of the USS Defender, on a mission to save Earth!</h2>
+    <p style="font-size: 20px;">Earth is been attacked by a horde of aliens! You must battle each alien one by one and try to destroy them with your lasers. Your lasers don't have target scope so you must rely on your accuracy.  <strong>There are six alien ships</strong> . The aliens' weakness is that they are too logical and attack one at a time. They will wait to see the outcome of a battle before deploying another alien ship. Your strength is that you have the initiative and get to attack first.</p>
+    <h2>Game Overview:</h2>
+    <ol>
+        <li>Ship Properties: hull is the same as hitpoints. If hull reaches 0 or less, the ship is destroyed. Firepower is the amount of damage done to the hull of the target with a successful hit. Accuracy is the chance between 0 and 1 that the ship will hit its target</li>
+        <li>Your spaceship, starts with the following properties: hull: 20, firepower: 5, accuracy: .7</li>
+
+        <li>You attack the first alien ship. Either you hit or miss. If you hit, you could have destroyed their ship depending on how much impact they can take.</li>
+        <li>If the alien ship survives, then it attacks you! Either they can hit or miss depending on their accuracy</li>
+        <li>If you survive, then you attack the ship again!</li>
+        <li>If it survives, then it attacks you again!</li>
+        <li>And this keeps going until one of your ships gets destroyed!</li>
+        <li>If you destroy the ship, you have the option to attack the next ship in the fleet OR or to retreat to safety</li>
+        <li>After you have destroyed one alien ship, you have the option to make a hasty RETREAT.</li>
+        <li>If you destroy all of the aliens, then you win the game!</li>
+        <li>If you are destroyed, then you lose the game</li>
+    </ol>
+
+    <h2>Ready to start?</h2>
+
+    <div class = "buttons">
+        <button id = "start-button" onclick="startGame()">START</button>
+        <button id = "next-button" onclick="nextBattle()">NEXT BATTLE</button>
+        <button id = "retreat-button" onclick="retreatToSafety()">RETREAT</button>
+    
+
+    </div>
+
+
+    <script src="/final.js"></script>
+</body>
+</html>

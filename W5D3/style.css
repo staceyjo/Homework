@@ -1,0 +1,22 @@
+body {
+    color: white;
+    background-color: black;
+}
+
+h1 {
+    text-align: center;
+    color:greenyellow
+}
+
+h2 {
+    text-align: center;
+    color: blue;
+}
+
+h6 {
+    text-align: center;
+}
+
+.buttons {
+    text-align: center;
+}
