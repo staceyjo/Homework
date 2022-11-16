@@ -333,18 +333,29 @@ const aliens = [
 // console.log(game.battles()) // returns undefined battles undefined
 
 //===================START GAME=============================
-// const startButtonEl = document.getElementById("start-button")
+const startButtonEl = document.getElementById("start-button")
 
-// startButtonEl.addEventListener("click", (evt) =>) [
-    // console.log("The game is starting")
-    // startButtonEl.classList.toggle("hide")
-//     startGame()
-// ]
+startButtonEl.addEventListener("click", (evt) => {
+    console.log("The game is starting")
+    startButtonEl.classList.toggle("hide")
+    game()
+}) 
 
-// const nextButtonEl = document.getElementById("next-button")
+
+// const attackButtonEl = document.getElementById("attack-button")
+
+// attackButtonEl.addEventListener("click", (evt) => {
+//     console.log("Attack")
+//     attackButtonEl.classList.toggle("hide")
+//     attacks()
+// }) 
 
 // const retreatButtonEl = document.getElementById("retreat-button")
-
+// retreatButtonEl.addEventListener("click", (evt) => {
+//     console.log("Attack")
+//     retreatButtonEl.classList.toggle("hide")
+//     retreat()
+// }) 
 
 const game = function () {
     console.log("The game has started!")
@@ -365,8 +376,7 @@ const game = function () {
                 }
             }
             if (myShip.isAlive) {
-                // Add a prompt here
-                response = prompt(`You have no choice but to play. Please type "attack" or "retreat" to continue. Or keep pressing the Cancel or OK buttons below- they both do the same thing. `)
+                response = prompt(`Please type "attack" or "retreat" to continue. `)
                 if (response == "retreat") {
                     console.log("Thank you for playing. Game over!")
                     break
