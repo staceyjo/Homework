@@ -1,7 +1,8 @@
+
 // Set up your index view:
-    // 1. When a user goes to the /pokemon route:
-        //  they will see an index of pokemon: 
-            // index: the names of each pokemon rendered to the page.
+// 1. When a user goes to the /pokemon route:
+//  they will see an index of pokemon: 
+// index: the names of each pokemon rendered to the page.
 
 
 // You will have to set up your jsx file
@@ -19,14 +20,26 @@ const myStyle = {
 };
 
 class Index extends React.Component {
-render() {
-    const {pokemon} = this.props
-    return(
-        <div style={myStyle}>
-            <h1>See All The Pokemon!</h1>
-        </div>
+    render() {
+        const { pokemon } = this.props
+        return (
+            <div>
+                <h1 style={myStyle}>See All The Pokemon!</h1>
+                <ul>
+                    {
+                        pokemon.map((eachPokemon, i) => {
+                            return (
+                                <li key={i}>
+                                    <a href={`/pokemon/${i}`}>{eachPokemon.name[0].toUpperCase() + eachPokemon.name.slice(1)}</a>
+                                </li>
+                            )
+                        })
+                    }
+
+                </ul>
+            </div>
         )
     }
 }
 
-module.exports  = Index;
+module.exports = Index;
