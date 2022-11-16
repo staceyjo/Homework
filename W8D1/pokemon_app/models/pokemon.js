@@ -12,5 +12,4 @@ const pokemon = [
     {name: "wartortle", img: "http://img.pokemondb.net/artwork/wartortle"}
  ];
 
-module.exports = pokemon       
-//  7. Set up your 'database' so that it can be exported to your server.js and then be required by your server.js
+module.exports = pokemon       //  7. Set up your 'database' so that it can be exported to your server.js and then be required by your server.js
