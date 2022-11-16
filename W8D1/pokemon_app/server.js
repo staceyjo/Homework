@@ -17,12 +17,17 @@
 const express = require('express');                 // 1. require express module
 const app = express();                              // 2. set express() to a variable/ create the express app
 const port = 3000;                                  // 3. set a variable of port to 3000
+const pokemon = require('./models/pokemon.js');     // 8. Set the pokemone 'database' to a variable called pokemon in your server.js file
+
 
 // Mount routes
 app.get('/',function(req,res){                      // 5. include a get route /
     res.send('Welcome to the Pokemon App!')         // that will res.send('Welcome to the Pokemon App!');
 })                                                  // so that when you got to localhost:3000, you will see Welcome to the Pokemon App!
 
+app.get('/pokemon',function(req,res){               // 9. Create a get route /pokemon
+    res.send(pokemon)                               // that will res.send(pokemon)
+})                                                  // which will display your pokemon data as json in the browser
 
 app.listen(port,function(req,res){                  // 4. set your app to listen to the port
     console.log('Server is running at port 3000')   // and include a console.log(), so that you can tell when your server is running
