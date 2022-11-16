@@ -19,9 +19,10 @@ const app = express();                              // 2. set express() to a var
 const port = 3000;                                  // 3. set a variable of port to 3000
 const pokemon = require('./models/pokemon.js');     // 8. Set the pokemone 'database' to a variable called pokemon in your server.js file
 
+const reactViews = require('express-react-views')
 // Set the view engine: 
 app.set('view engine', 'jsx');
-app.engine('jsx', require('express-react-views').createEngine());
+app.engine('jsx', reactViews.createEngine());
 
 // Mount routes
 app.get('/',function(req,res){                      // 5. include a get route /
@@ -33,10 +34,14 @@ app.get('/',function(req,res){                      // 5. include a get route /
 // })                                                  // which will display your pokemon data as json in the browser
 
 app.get('/pokemon',function(req,res){            // 10. Instead of displaying json at your /pokemon route, 
-    res.render('index', {data:pokemon})                 // you should serve the Index.jsx file you created 
-})                                                                    // that will display your pokemon
+    res.render('Index', {pokemon:pokemon})                 // you should serve the Index.jsx file you created 
+})                                                      // that will display your pokemon
+
+app.get('/pokemon/:id', (req,res) => {
+    res.render('Show', pokemon[req.params.id])
+})
 
 
 app.listen(port,function(req,res){                  // 4. set your app to listen to the port
-    console.log('Server is running at port 3000')   // and include a console.log(), so that you can tell when your server is running
+    console.log('Server is running at port ', port)   // and include a console.log(), so that you can tell when your server is running
 })                                          
