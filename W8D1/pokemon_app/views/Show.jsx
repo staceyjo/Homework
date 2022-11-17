@@ -1,3 +1,7 @@
+  // 2. When a user clicks on the name of the pokemon:
+        // they will be taken to that pokemon's show page,
+            // show page: the pokemon's name and image
+
 const React = require('react')
 
 const myStyle = {

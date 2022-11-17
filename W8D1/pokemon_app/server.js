@@ -29,13 +29,13 @@ app.get('/',function(req,res){                      // 5. include a get route /
     res.send('Welcome to the Pokemon App!')         // that will res.send('Welcome to the Pokemon App!');
 })                                                  // so that when you got to localhost:3000, you will see Welcome to the Pokemon App!
 
-// app.get('/pokemon',function(req,res){               // 9. Create a get route /pokemon
-//     res.send(pokemon)                               // that will res.send(pokemon)
-// })                                                  // which will display your pokemon data as json in the browser
+// app.get('/pokemon',function(req,res){            // 9. Create a get route /pokemon
+//     res.send(pokemon)                            // that will res.send(pokemon)
+// })                                               // which will display your pokemon data as json in the browser
 
-app.get('/pokemon',function(req,res){            // 10. Instead of displaying json at your /pokemon route, 
-    res.render('Index', {pokemon:pokemon})                 // you should serve the Index.jsx file you created 
-})                                                      // that will display your pokemon
+app.get('/pokemon',function(req,res){               // 10. Instead of displaying json at your /pokemon route, you should serve the Index.jsx file you created, that will display your pokemon
+    res.render('Index', {pokemon:pokemon})          // Change your /pokemon route to res.render your Index.jsx file
+})                                                  // Go to localhost:3000/pokemon and be sure to see your Index.jsx view with an h1 tag
 
 app.get('/pokemon/:id', (req,res) => {
     res.render('Show', pokemon[req.params.id])
