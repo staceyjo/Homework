@@ -333,14 +333,7 @@ const aliens = [
 // console.log(game.battles()) // returns undefined battles undefined
 
 //===================START GAME=============================
-const startButtonEl = document.getElementById("start-button")
-
-startButtonEl.addEventListener("click", (evt) => {
-    console.log("The game is starting")
-    startButtonEl.classList.toggle("hide")
-    game()
-}) 
-
+game()
 
 // const attackButtonEl = document.getElementById("attack-button")
 
@@ -395,8 +388,3 @@ const game = function () {
 }
 
 game()
-
-
-
-
-
