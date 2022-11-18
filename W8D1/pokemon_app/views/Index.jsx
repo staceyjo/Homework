@@ -49,6 +49,10 @@ class Index extends React.Component {
                 </head>
                 <body style={{color:'#FF0000', backgroundColor: '#FFDE00'}}>
                     <h1 style={myStyle}>See All The Pokemon!</h1>
+                    <nav>
+                    <a style ={{color:"red"}} href = "/pokemon/new">Create New</a>
+                </nav>
+
                     <h2>Index:</h2>
                     <ul>
                         {
