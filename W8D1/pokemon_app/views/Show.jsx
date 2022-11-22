@@ -21,7 +21,7 @@ const myStyle = {
 
 class Show extends React.Component {
     render () {
-    const {name, img} = this.props
+    const {name, img} = this.props.pokemon
     console.log(this.props)
     return (
         <div>

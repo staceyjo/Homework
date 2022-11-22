@@ -28,7 +28,7 @@ const pokemonSchema = new mongoose.Schema({
 
 // create the pokemon model
 // the model controls the data
-const Pokemon = mongoose.model("Pokemon", pokemonSchema, 'pokemon');
+const Pokemon = mongoose.model("Pokemon", pokemonSchema);
 
 // export the pokemon model
 module.exports = Pokemon;
