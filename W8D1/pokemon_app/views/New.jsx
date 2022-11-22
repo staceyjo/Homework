@@ -1,20 +1,28 @@
 const React = require('react')
 
+const myStyle = {
+    color: '#ffde00',
+    backgroundColor: '#3B4CCA',
+    textAlign: 'center',
+}
+
 class New extends React.Component {
     render() {
         return (
-            <div>New Page
-                <h1>New Pokemon Page</h1>
-                <nav>
-                    <a style ={{color:"red"}} href = "/pokemon">Back to Home Page</a>
-                </nav>
-                {/* NOTE: action will be the route, method will be the HTTP verb
-                This creates the HTML form */}
-                <form action="/pokemon" method = "POST">
-                    Name: <input type="text" name ="name"/><br />
-                    Image: <input type="url" name ="img"/><br />
-                    <input type="submit" value="Create New Pokemon"/>
-                </form>
+            <div>
+                <body style={{color:'#FF0000', backgroundColor: '#E6CE2B'}}>
+                    <h1 style={myStyle}>New Pokemon Page</h1>
+                    <nav>
+                        <a style ={{color:"red"}} href = "/pokemon">Back to Home Page</a>
+                    </nav>
+                    {/* NOTE: action will be the route, method will be the HTTP verb
+                    This creates the HTML form */}
+                    <form action="/pokemon" method = "POST">
+                        Name: <input type="text" name ="name"/><br />
+                        Image: <input type="text" name ="img"/><br />
+                        <input type="submit" value="Create New Pokemon"/>
+                    </form>
+                </body>
             </div>
         )
     }

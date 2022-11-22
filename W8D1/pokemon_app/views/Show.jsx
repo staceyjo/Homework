@@ -20,10 +20,10 @@ const myStyle = {
 }
 
 class Show extends React.Component {
-   render () {
+    render () {
     const {name, img} = this.props
     console.log(this.props)
-    return ( 
+    return (
         <div>
             <head>
                 <title>Pokemon App</title>

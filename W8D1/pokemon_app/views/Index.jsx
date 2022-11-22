@@ -31,7 +31,7 @@
         // where x is the array position of the pokemon in the data array. 
         // This should be set dynamically with js
 
-const React = require('react')
+const React = require("react");
 
 const myStyle = {
     color: '#FFDE00',
@@ -41,7 +41,7 @@ const myStyle = {
 
 class Index extends React.Component {
     render() {
-        const { pokemon } = this.props
+        const {pokemon} = this.props
         return (
             <div>
                 <head>
@@ -50,16 +50,16 @@ class Index extends React.Component {
                 <body style={{color:'#FF0000', backgroundColor: '#FFDE00'}}>
                     <h1 style={myStyle}>See All The Pokemon!</h1>
                     <nav>
-                    <a style ={{color:"red"}} href = "/pokemon/new">Create New</a>
-                </nav>
-
+                        <a style ={{color:"red"}} href = "/pokemon/new">Create New Pokemon</a>
+                    </nav>
                     <h2>Index:</h2>
                     <ul>
                         {
                             pokemon.map((eachPokemon, i) => {
                                 return (
                                     <li key={i}>
-                                        <a href={`/pokemon/${i}`}>{eachPokemon.name[0].toUpperCase() + eachPokemon.name.slice(1)}</a>
+                                        <a href={`/pokemon/${eachPokemon._id}`}>{eachPokemon.name[0].toUpperCase() + eachPokemon.name.slice(1)}</a>
+                                        {/* <a href={`/pokemon/${i}`}>{eachPokemon.name[0].toUpperCase() + eachPokemon.name.slice(1)}</a> */}
                                     </li>
                                 )
                             })
